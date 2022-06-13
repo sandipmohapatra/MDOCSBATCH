@@ -270,10 +270,24 @@ end loop;
 end;
 
 ---------------------------------------------------
+Trigger :- automatically fired
+example :- salary posting,telcom bill generation.
+Trigger time :- before,after
+Trigger event:-insert,update,delete
+--------------------------------------------------
+create or replace trigger t1
+before insert on mdocsemployee
+begin
+if(to_char(sysdate,'dy')in('sat','sun')) or (to_char(sysdate,'HH24:MI') not between '09' and '16')
+then
+raise_application_error(-20500,'you cannot insert data after business hours');
+end if;
+end;
+----------------------------------------------------------------------------------
+create table mdocsemployee(empno number,name varchar2(30),address varchar2(30));
 
-
-
-
+insert into mdocsemployee values(102,'anu','bangalore');
+--------------------------------------------------------------------------------------------
 
 
 
