@@ -128,10 +128,34 @@ dbms_output.put_line('Wrong Input');
 end case;
 end;
 -----------------------------------------------------------------------
-
-
-
-
+enter rollno,name,address,marks and find the division.
+-----------------------------------------------------------------------
+declare
+rollno number;
+name varchar2(30);
+address varchar2(30);
+marks number;
+begin
+rollno:=:rollno;
+name:=:name;
+address:=:address;
+marks:=:marks;
+dbms_output.put_line('The rollno is:'||rollno);
+dbms_output.put_line('The name is:'||name);
+dbms_output.put_line('The address is:'||address);
+dbms_output.put_line('The marks is:'||marks);
+case
+when marks >= 70
+then dbms_output.put_line('First Division');
+when marks >= 60
+then dbms_output.put_line('Second Division');
+when marks >= 50
+then dbms_output.put_line('Third Division');
+else
+dbms_output.put_line('Fail');
+end case;
+end;
+------------------------------------------------------------ 
 
 
 
