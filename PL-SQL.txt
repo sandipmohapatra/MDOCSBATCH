@@ -189,11 +189,87 @@ end;
 -----------------------------------------------------------------------
 select * from circlemdocs;
 ----------------------------------------------------
+function :-
+function returns a value.
+There are 2 types of functions:- 1)user defined function, 2)pre-defined function
+--------------------------------------------------------------------------------
+example-1
+--------------Function create----------
+create or replace function addno(i number,j number) return number is
+begin
+return i+j;
+end;
+-------------Function call------------------------------
+declare 
+a number;
+begin
+a:=addno(100,200);
+dbms_output.put_line('The sum is '||a);
+end;
+-------------------------------------------------------------
+procedure :- It doesnot return any value
+---------------------------------------create procedure-----------------------
+create or replace procedure add_no(i number default 0,j number default 0,k number default 0) is
+begin
+dbms_output.put_line('The sum is '||(i+j+k));
+end;
+-------------------call procedure------------------------------------------------
+begin
+add_no(3,4,5);
+end;
+--------------------------------------------------------------------
+cursor :- It can store more than one record into a cursor variable.
+example:- 
+cursor c is select name from employee;
+in c we can store 1000's of records we can use loop to iterate the data.
+-----------------------------------------------------------------------------------------------
+There are 2 types of cursor
+1)inplicit cursor :- oracle uses it when we write select * from bankemp;
+2)explicit cursor:- developers have control on it.devlopers can manipulate it.
 
+steps:-
+1)declare 
+2)open
+3)manipulate
+4)close
 
+attributes of cursor:-
+------------------------------
+1)%isopen :- The cursor is in the middle of the table (true) .if it reaches the end of the report it will return false.
+2) %found :- The cursor is in the middle of the table.
+3)%notfound:- The cursor is in the end of the table
+4)%rowcount:- It will count the number of rows.
+-------------------------------------------------------------------------------------
+example:-
+--------------------
+declare
+cursor c is select radius from circlemdocs;
+n number;
+begin
+open c;
+loop
+fetch c into n;
+exit when c %notfound;
+dbms_output.put_line(n);
+end loop;
+end;
+------------------------------------------------------
+example-2
+-----------------------------
+declare
+cursor c is select radius,area from circlemdocs;
+n number;
+a number;
+begin
+open c;
+loop
+fetch c into n,a;
+exit when c %notfound;
+dbms_output.put_line(n || ' the area is '|| a);
+end loop;
+end;
 
-
-
+---------------------------------------------------
 
 
 
