@@ -78,6 +78,65 @@ dbms_output.put_line('The number is odd');
 end if;
 end;
 -----------------------------------------------------------------------
+||  -This is a concade symbol like in java it +;
+
+example:- select 'the employee '|| name|| ' has phoneno  ' ||phone from employee;
+--------------------------------------------------------------------------------------------------------------
+example 6:-
+-----------------------------------------------------
+declare
+a number;
+b number;
+opt varchar2(20);
+begin
+a:=:a;
+b:=:b;
+opt:=:opt;
+case
+when opt='add'
+then dbms_output.put_line('The sum is : '||(a+b)); 
+when opt='sub'
+then dbms_output.put_line('The sub is : '||(a-b)); 
+when opt='mul'
+then dbms_output.put_line('The mul is : '||(a*b)); 
+when opt='div'
+then dbms_output.put_line('The div is : '||(a/b)); 
+else
+dbms_output.put_line('Wrong Input'); 
+end case;
+end;
+--------------------------------------------------------------------------------------------
+example 7:-
+--------------------
+declare
+a number;
+begin
+a:=:a;
+case
+when a=1
+then dbms_output.put_line('One '); 
+when a=2
+then dbms_output.put_line('Two '); 
+when a=3
+then dbms_output.put_line('Three '); 
+when a=4
+then dbms_output.put_line('Four '); 
+when a=5
+then dbms_output.put_line('Five '); 
+else
+dbms_output.put_line('Wrong Input'); 
+end case;
+end;
+-----------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
 
 
 
