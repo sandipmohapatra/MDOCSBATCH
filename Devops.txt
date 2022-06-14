@@ -13,3 +13,26 @@ benefit :-
 3)creating braches and merging it for local storage.
 https://git-scm.com/downloads
 4)global storage--https://github.com/
+
+to pull the data from the remote github
+------------------------------------------------------
+step 1:- right click on a folder
+step 2:-select GIT GUI here
+step 3:-The a command prompt will open.
+step 4:-git remote add origin "https://github.com/sandipmohapatra/MDOCSBATCH"
+step 5:- git pull origin mohapatra2018
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
