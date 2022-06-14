@@ -18,9 +18,35 @@ to pull the data from the remote github
 ------------------------------------------------------
 step 1:- right click on a folder
 step 2:-select GIT GUI here
-step 3:-The a command prompt will open.
+step 3:-The  command prompt will open.
 step 4:-git remote add origin "https://github.com/sandipmohapatra/MDOCSBATCH"
 step 5:- git pull origin mohapatra2018
+step 6:-git status :-to see if the branch is clean and nothing to commit.
+step 7:-vi project.txt 
+to insert the lines into the file press insert
+to save and quit
+press --esc :wq
+step 8:-ls to see the list of files.
+step 9:-git add .
+step 10:-git commit -m "This is mdocs batch"
+step 11:-create a branch
+git branch firstbranch
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
