@@ -39,12 +39,80 @@ git checkout master
 git merge firstbranch
 * when you merge your code with the master then you have submited your code to the projectmanager. 
 ---------------------------------------------------------------
+Maven
+-------------------
+maven is a tool.It provides the supporting jar files.
+example:- jdbc,servlet,junit testing we require jar files because the api are not present in the jre.
+how it is help full.in spring,hibernate we require at least 30jar files with a particular version.now the version changes we have to again search for new version jar files.this is a tidies job.
+Maven repository contains a link which will download all the jar files of a particular version and add it to our program.
+we have a POM.xml file where this link has to be pasted.
 
-
-
-
-
-
+-------------------------------------
+file --->new ---->maven project
+create simple project
+group-id ---org.sandip
+artifactid---MavenProjectName
+--------------------------------------------------
+folder structure
+-------------------------
+1)src/main/java
+2)src/main/resources ---supporting files.
+3)src/test/java
+4)src/test/resources----supporting files.
+------------------------------------------------------
+POM.xml
+------------------
+<dependencies>
+  <!-- https://mvnrepository.com/artifact/junit/junit -->
+<dependency>
+    <groupId>junit</groupId>
+    <artifactId>junit</artifactId>
+    <version>4.4</version>
+    <scope>test</scope>
+</dependency>
+    </dependencies>
+-----------------------------------------------
+Calculator.java
+-------------------------
+public class Calculator {
+public int square(int i)
+{
+	return i*i;
+}
+public int sum(int i,int j)
+{
+	return i+j;
+}
+public int sub(int i,int j)
+{
+	return i-j;
+}
+public int div(int i,int j)
+{
+	return i/j;
+}
+public int mul(int i,int j)
+{
+	return i*j;
+}
+}
+------------------------------------------------------------------------------
+import static org.junit.Assert.*;
+import org.junit.Test;
+public class CalculatorTest 
+{
+Calculator ob=new Calculator();
+@Test
+public void testFunctions()
+{
+	assertEquals(49,ob.square(7));
+	assertEquals(10,ob.sum(4, 6));
+	assertEquals(8,ob.sub(14, 6));
+	assertEquals(24,ob.mul(4, 6));
+	assertEquals(2,ob.div(14, 7));
+}
+}
+---------------------------------------------------------------
 
 
 
