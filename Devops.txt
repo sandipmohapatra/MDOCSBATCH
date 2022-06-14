@@ -31,8 +31,14 @@ step 9:-git add .
 step 10:-git commit -m "This is mdocs batch"
 step 11:-create a branch
 git branch firstbranch
-
-
+step :12 :-git checkout firstbranch
+to goto the branch we have to do checkout
+*create files and do git add,git commit.
+step 13:-  
+git checkout master
+git merge firstbranch
+* when you merge your code with the master then you have submited your code to the projectmanager. 
+---------------------------------------------------------------
 
 
 
