@@ -1,0 +1,1548 @@
+Java
+------
+1)It is a programming language.It is a high level,robust,object-oriented programming language.
+2)In java we can develop web application,mobile application ,standlone application.
+3)Java is simpler than c or c++ as we don't have pointer concept,operator overloading .
+4)It is portable and light weight.
+5)In java we have constructor but no destructor as there is automatic garbage clearance.
+6)Java development kit (JDK) are platform dependent as they differ from each OS.
+it performs task like loads code,verifies code,exceute code and provide run time environment.
+7)we have different versions of java avialable.currently we are using JDK 1.14
+-------------------------------
+Data types in java
+i)Primative data type
+byte --1 byte
+short--2 bytes
+int---4 bytes
+long--8 bytes
+float--4 bytes
+double--8 bytes
+char--2 bytes
+boolean --1 bit
+
+ii)Non-primative
+String
+Array
+------------------------------------------------------------------
+operator
+------------
+1)Unary
+i)i++,++i or i--,--i
+
+2)Binary
+i)Arithmatic operator:-  +,-,*,/,%(modulus)
+ii)comparative operator :-<,>,<=,>=,=
+iii)logical operator:-&&,||
+iv)Bitwise operator:-<<,>>
+v) assignment operator :-=,!=
+
+3)Ternary
+i)?,:
+--------------------------------------------------------------------
+OOPS (object oriented programming system)
+1)Object:- It is a reference pointer to access the variables and methods of a class.
+2)class:-It is blue print of an object or it is also called as object factory.
+3)Inheritance:-It is when one object acquires all the properties and behaviors of a parent object.
+4)Polymorphism:-If one task is performed in different ways it is known as polymorphism.
+in java we use method overloading and method overriding.
+5)Abstraction:-Hiding internal details and showing functionality is known as abstraction.(we switch on the fan the internal part is hidden and it rotate)
+6)Encapsulation:-Binding code and data together into a single unit are known as encapsulation.(capsule wrapped with different medicines)
+----------------------------------------------------------------------------
+Access specifier
+-------------------------
+1)private:- if we declare variables and methods as private we can only access it within the class.
+2)public:-if we declare variables and methods as public we can it within the class,outside the class and package.
+3)protected:-if we declare variables and methods as protected we can only access it within the class and in the child class 
+4)default:-if we declare variables and methods as default or no access specifier we can only access it within the class and also outside the class but not outside the package.
+----------------------------------------------------------------------------------------------------
+util package  --->Scanner --->methods
+lang package --->String (non-primative /class)---->methods
+-------------------------------------------------------------------------------
+All datatypes in java is also class  known as wrapper class.
+*It belong to the lang package.it is also known as default package.
+* all classes in java are in caps
+*all packages are in small
+*methods will be in camel case.
+datatype	Wrapper class(methods).
+-----------------------------------
+byte 	Byte
+short	Short
+int	Integer
+long	Long
+float 	Float
+double	Double
+char	Character
+String	String
+-------------------------------------- 
+   String :-
+-----------
+1)String is a class in java.lang package
+2)In java string is also considered as datatype
+3)String object is Immutable(cannot be changed)
+4)When we assign a value it create a new object and the value remains in memory.
+Example :- String s1=“hello”;
+ String s2=new String(“hello”);
+Method :- length(),isEmpty(),charAt(),equals(),startWith(),endsWith(),indexOf(),lastIndexOf(),toUpperCase(),toLowerCase()
+-----------------------------------------------------------------------------------------------------------------------
+String Buffer:-
+---------------------
+1)It is a peer class of string and provides all functions of string.
+2)It is mutable (can be modified) and expanded dynamically.
+3)It is synchronized
+Ex:-1) StringBuffer b=new StringBuffer(“hello”);
+We pass “hello” to StringBuffer object “b”
+2)StringBuffer b=new StringBuffer(50);
+We can store 50 or more character .It is mutable so it expands dynamically
+3)StringBuffer b=new StringBuffer()
+StringBuffer object b is created with default capacity 16 character.
+4)Methods :- append(),insert(),delete(),reverse()
+--------------------------------------------------------------------------------------------
+
+
+String Builder :-
+--------------------
+1)It is same as String Buffer
+2)String Builder is not synchronized
+3)String Buffer class takes more time to execute than StringBuilder.
+-----------------------------------------------------------------------------------------------
+String s1=”sandip”;
+String s1=”kumar”;
+Now the reference s1 contain new data the old object data is lost.
+It is known as unreferenced object and garbage collector will remove it from memory.
+---------------------------------------------------------
+package First.Friday;
+class Firstprg
+{	public static void main(String args[])
+	{
+	String s1="Mphasis and Global soft";
+	System.out.println(s1);
+	System.out.println(s1.toUpperCase());
+	System.out.println(s1.toLowerCase());
+	System.out.println(s1.indexOf('a'));
+	System.out.println(s1.lastIndexOf('a'));
+	System.out.println(s1.substring(5));
+	System.out.println(s1.substring(5,10));
+	System.out.println(s1.startsWith("Mp"));
+	System.out.println(s1.endsWith("ft"));
+	System.out.println(s1.replace("soft","software"));
+	String ss="Mphasis and Global soft,mumbai";
+	System.out.println(ss);
+                  System.out.println("the length of string="+ss.length());
+	System.out.println(ss.replace("mumbai","Bangalore"));
+	char name[]=s1.toCharArray();//convert string to char array
+	int leng=name.length;
+	System.out.println("length of an array="+leng);
+                  for(int i=0;i<leng;i++)
+	{
+		System.out.println(name[i]);
+	}}}
+----------------------------------------------------------------------
+package First.Friday;
+
+public class Secondprg 
+{
+	  public static void main(String args[])
+	{  int age=25;
+	StringBuffer s=new StringBuffer(" She  is ");
+	StringBuffer s1=new StringBuffer("Hello to HP ");
+	System.out.println("string buffer="+s);
+	System.out.println("s append="+s.append(age));
+	System.out.println("s append="+s.append(" years old."));
+	System.out.println("entire string="+s.toString());//convert object to string
+	System.out.println("length="+s.length());
+	System.out.println("capacity="+s.capacity());
+	System.out.println("s1="+s1);
+	System.out.println("charAt="+s1.charAt(1));
+	s1.setCharAt(1,'i');
+	s1.setLength(5);
+	System.out.println("s1="+s1);
+	System.out.println("set insert="+s1.insert(5,"welcome"));
+	System.out.println("to delete="+s1.delete(5,6));
+	System.out.println("to reverse="+s1.reverse());
+	System.out.println(s1);
+	}}
+--------------------------------------------------
+toString
+---------------
+class Employee
+{
+	private int empno;
+	private String name;
+	private Address address; //has a relationship
+	public int getEmpno() {
+		return empno;
+	}
+	public void setEmpno(int empno) {
+		this.empno = empno;
+	}
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	public Address getAddress() {
+		return address;
+	}
+	public void setAddress(Address address) {
+		this.address = address;
+	}
+		
+}
+----------------------------------------------------------------
+public class Address 
+{
+private int houseno;
+private String city;
+private String state;
+public int getHouseno() {
+	return houseno;
+}
+public void setHouseno(int houseno) {
+	this.houseno = houseno;
+}
+public String getCity() {
+	return city;
+}
+public void setCity(String city) {
+	this.city = city;
+}
+public String getState() {
+	return state;
+}
+public void setState(String state) {
+	this.state = state;
+}
+@Override
+public String toString() {
+	return "Address [houseno=" + houseno + ", city=" + city + ", state=" + state + "]";
+}
+
+}
+------------------------------------------------------------------------
+public class Mainclass 
+{
+public static void main(String[] args)
+{
+Address ad=new Address();
+ad.setHouseno(101);
+ad.setCity("bangalore");
+ad.setState("karnataka");
+
+Employee em=new Employee();
+em.setEmpno(1001);
+em.setName("Farhan");
+em.setAddress(ad);//we are setting the object of Address here
+System.out.println("the empno is "+em.getEmpno());
+System.out.println("the name is "+em.getName());
+System.out.println("the address is "+em.getAddress());
+}
+}
+-----------------------------------------------------------------------------------
+constructor():-
+1) A constructor is a function which has the same name as that of the class name.
+2)A constructor doesnot return any values.
+3)A constructor is mainly use to assign values .because a constructor excute first when a object is created for a class.
+4)There are 2 types of constructor .
+i)default constructor:- A constructor without parameter.
+ii)parameterized constructor :- A constructor with parameter.
+5)A constructor excute auotmatically when an object is created for a class.
+--------------------------------------------------------------------------------------------------
+example:-
+class Firstprg
+{	
+Firstprg()
+{
+	System.out.println("This is default constructor");
+}
+Firstprg(int a,int b)
+{
+	System.out.println("the sum of 2 nos are"+(a+b));
+}
+int sum(int a,int b)//it returns a value
+{	return a+b;}
+public static void main(String[] args) {
+	Firstprg ob=new Firstprg();
+	Firstprg ob1=new Firstprg(5,6);
+	Firstprg ob2=new Firstprg();
+	Firstprg ob3=new Firstprg(15,16);
+	System.out.println("the sum is "+ob.sum(7,8));
+	System.out.println("the sum is "+ob.sum(17,18));
+
+	}}
+
+
+-------------------------------------------------------------
+package First.Friday;
+class Firstprg
+{	
+int empno;//instance variables
+String name;
+	Firstprg(int empno,String name)//local variables
+{
+		this.empno=empno;
+		this.name=name;
+System.out.println("the empno "+empno);
+System.out.println("the name is "+name);
+}
+public static void main(String[] args)
+{
+Firstprg ob=new Firstprg(101,"sandip");
+	}}
+---------------------------------------------------
+Object Array
+---------------------
+package First.Friday;
+import java.util.*;
+class Firstprg
+{	
+int accno,bal;//instance variables
+String name,address;
+	Firstprg(int accno,String name,String address,int bal)//local variables
+{
+		this.accno=accno;
+		this.name=name;
+		this.address=address;
+		this.bal=bal;
+}
+	void display()
+	{
+		System.out.println("Accno :"+accno);
+		System.out.println("Name :"+name);
+		System.out.println("Address :"+address);
+		System.out.println("Balance :"+bal);
+			}
+public static void main(String[] args)
+{
+Scanner obj=new Scanner(System.in);
+System.out.println("How many customers want to enter");
+int x=obj.nextInt();
+//Firstprg ob2=new Firstprg(101,"prasanna","pune",8000);  //creating single object
+Firstprg[] ob=new Firstprg[x];//to create object array.  <classname>[] object=new <classname>[5];
+	for(int i=0;i<x;i++)
+	{
+System.out.println("enter accno,name,address,balance");	
+int accno=obj.nextInt();
+String name=obj.next();
+String address=obj.next();
+int bal=obj.nextInt();
+ob[i]=new Firstprg(accno,name,address,bal); //to enter data into each array object 
+	}
+	//ob2.display();
+	for(int i=0;i<x;i++)
+	ob[i].display();
+	System.out.println("enter the accno to search");
+	int temp=obj.nextInt();
+	for(int i=0;i<x;i++)
+	{
+	if(ob[i].accno==temp)
+	{
+	System.out.println("the name is "+ob[i].name);
+	System.out.println("the address is "+ob[i].address);
+	System.out.println("the balance is "+ob[i].bal);
+		}
+	}
+}}
+
+
+-----------------------------------------------------------------------------------------
+package First.Friday;
+import java.util.*;
+class Firstprg
+{	
+int accno,bal;//instance variables
+String name,address;
+Scanner obj=new Scanner(System.in);
+void input()
+{
+	//this.accno=accno;  //local variable is assigned to instance variable
+		System.out.println("enter accno,name,address,balance");	
+		accno=obj.nextInt();
+		name=obj.next();
+		address=obj.next();
+		bal=obj.nextInt();
+		
+}
+	void display()
+	{
+		System.out.println("Accno :"+accno);
+		System.out.println("Name :"+name);
+		System.out.println("Address :"+address);
+		System.out.println("Balance :"+bal);
+			}
+public static void main(String[] args)
+{
+	Scanner obj=new Scanner(System.in);
+	System.out.println("How many customers want to enter");
+int x=obj.nextInt();
+Firstprg[] ob=new Firstprg[x];//declaring of array object
+	for(int i=0;i<x;i++)
+	{
+ob[i]=new Firstprg();  //object created
+	ob[i].input();
+	//ob[i].display();
+	}
+	System.out.println("enter the accno to search");
+	int temp=obj.nextInt();
+	for(int i=0;i<x;i++)
+	{
+	if(ob[i].accno==temp)
+	{
+	System.out.println("the name is "+ob[i].name);
+	System.out.println("the address is "+ob[i].address);
+	System.out.println("the balance is "+ob[i].bal);
+		}
+	}
+}}
+--------------------------------------------------------------------------
+Inheritance 
+---------------------
+It is a mechanism in which one object acquires all the properties and behaviors of a parent object.
+we can tell code reusability.
+In this we will be having a parent class and a child class.
+we use to keyword in inheritance.1)extend key to inherite the parent class into the child class.
+2)super key word to inherite the variables and methods of parent class into the child class.
+
+Java support single inheritance.(single,multilevel,hierarchical)
+Java doesnot support multiple inheritance. we use interface for multiple inheritance.
+-----------------------------------------------------------------------------------------------
+ 
+Employee class(Parent)
+
+package second.Wednesday;
+import java.util.*;
+public class Employee 
+{
+	int empno;
+	float salary;
+	String name;
+	void input()
+	{
+		Scanner ob=new Scanner(System.in);
+		System.out.println("enter empno,name,salary");
+		empno=ob.nextInt();
+		name=ob.next();
+		salary=ob.nextFloat();
+	}
+	void display()
+	{
+		System.out.println("the empno is "+empno+ "name is "+name+ "salary is "+salary);	
+	}
+}
+----------------------------------------------------------------------
+package second.Wednesday;
+import java.util.*;
+public class Developer extends Employee //inherite the parent class into the child class 
+{
+String project,duration;
+void input() //method overridding 
+{
+	super.input(); // to access the parent method into the child class.
+	Scanner ob=new Scanner(System.in);
+	System.out.println("enter project name,duration of project");
+	project=ob.next();
+	duration=ob.next();
+}
+void display()
+{
+	super.display();
+	System.out.println("the project name is "+project+ " project duration is "+duration);
+}
+public static void main(String[] args) 
+{
+Developer dev=new Developer();
+dev.input();
+dev.display();
+}
+}
+----------------------------------------------------------------
+Using Constructor
+---------------------------
+package second.Wednesday;
+import java.util.*;
+public class Employee //parent class
+{
+	int empno;
+	float salary;
+	String name;
+	public Employee(int empno, float salary, String name)
+	{
+		this.empno = empno;
+		this.salary = salary;
+		this.name = name;
+	}
+	void display()
+	{
+		System.out.println("the empno is "+empno+" salary  is "+salary+"name is "+name );
+	}
+}
+-----------------------------------------------------
+package second.Wednesday;
+import java.util.*;
+public class Developer extends Employee //inherite the parent class into the child class 
+{
+String project,duration;
+public Developer(int empno, float salary, String name, String project, String duration) 
+{
+	super(empno, salary, name);//first the parent class constructor will execute then other will execute
+	this.project = project;
+	this.duration = duration;
+}
+void display()
+{
+	super.display();
+	System.out.println("project name is "+project+" duration is "+duration);
+}
+public static void main(String[] args) 
+{
+Developer dev=new Developer(101,6700.50f,"Nitish","AirLine Reservation system","2 months");
+dev.display();
+}
+}
+
+--------------------------------------------
+static :- it is  a keyword.we can declare a variable as static ,method as static ,block as static and class as static when we take a inner class.
+A single copy is created and shared to the JVM.So if we declare variable as static ,method as static we can access it without creating an object.
+we cannot use a non-static variable inside a static method.
+-----------------------------------------------
+package second.Wednesday;
+public class Staticexample 
+{
+static int a=10;
+int b=20;
+static void display()
+{
+	//int c=a+b;//we cannot call a non-static variable inside a static method
+	System.out.println("the value of a is "+a);
+}
+static
+{
+	System.out.println("this is a static block");
+	System.out.println("This block will exceute before the main method");
+}
+public static void main(String[] args)
+{
+System.out.println(a);
+display();}}
+
+----------------------------------------------------------
+final keyword
+-----------------------------
+we can declare a class as final,method as final and variable as final.
+if we declare class as final we cannot inherite it.
+if we declare variable as final we have to assign it and it cannot be changed.
+if we declare method as final we cannot override it.
+-------------------------------------------------------------------------------
+
+pre-defined final class?we cannot change it (immutable).example String class.
+StringBuffer,Integer,
+----------------------------------
+package second.Wednesday;
+
+public final class Finalexample 
+{
+final int a = 10;
+final void display()
+{
+	System.out.println("this is a final method");
+}
+public static void main(String[] args) {
+	Finalexample ob=new Finalexample();
+	//ob.a=20; this is not allowed
+	System.out.println(ob.a);
+	ob.display();
+}
+}
+---------------------------------------------------------------------------------------
+Abstract class and Interface
+--------------------------------------------
+abstract class is a class which contains abstract methods as well as concrete methods.
+abstract methods are those which donot have method body.
+concrete methods are those which has method body.
+we cannot create object of a abstract class.we have to inherite a abstract class into a subclass.override the abstract methods and create object of the child class.
+--------------------------------------------
+package second.Wednesday;
+
+abstract class Abstractexample1 
+{
+abstract void display();//method without body.
+void display1() //concrete method
+{
+	System.out.println("this is concrete method");
+}
+}
+class BankDetails extends Abstractexample1
+{
+
+	@Override //we are overriding a abstract method
+	void display() {
+		System.out.println("this is a override method");
+		}
+}
+class Abstractexample
+{
+	public static void main(String[] args)
+	{
+		BankDetails obj=new BankDetails();//we cannot instanciate a abstract class.
+		obj.display();
+	}
+}
+
+--------------------------------------------------------------------------
+purpose of abstract class:-
+---------------------------------------
+abstract is a Story or brief about your project.
+abstract class and abstract methods are incomplete class or method.
+example:-
+Bank project---client wants some methods for sure.withdraw(),deposite(),loan(),balancecheck()
+so in the base class/parent class the team lead will declare these methods .
+so that the developers can override and define these methods in the sub-class class.
+--------------------------------------------------------------------------------------------------------------------------
+Interface 
+--------------------
+1)it is similar abstract class but we donot have concrete methods.(only abstract methods in it)
+2)By interface we can do multiple inheritance.
+3)we donot use the keyword abstract .
+4)we cannot create object of a interface.we have to inherite a interface into a subclass.override the abstract methods and create object of the child class.
+------------------------------------------------------------------------
+package second.Wednesday;
+interface SBIbank
+{
+	int bal=1000;//if you declare a variable within a interface it is bydefault final and static. 
+	void displaybal();
+}
+interface ICICIBank
+{
+	void displaybalcheck();
+}
+
+interface IDBIBank extends ICICIBank //an interface can extend another interface. 
+{
+	void dispBal();
+}
+
+public class InterfaceExample implements SBIbank,IDBIBank 
+{
+
+	@Override
+	public void displaybal() {
+		
+		System.out.println("SBIBank balance check");
+	}
+
+	@Override
+	public void displaybalcheck() {
+		System.out.println("ICICIBank balance check");
+					
+	}
+	public static void main(String[] args) {
+		InterfaceExample ob=new InterfaceExample();
+		System.out.println(bal);
+		ob.displaybal();
+		ob.displaybalcheck();
+		ob.dispBal();
+	}
+
+	@Override
+	public void dispBal() {
+		System.out.println("this is IDBI Bank");
+		
+	}
+
+}
+
+----------------------------------------------------------------------
+Functional Interface :- A functional interface is a interface which has only one abstract method .
+
+--------------------------------
+package Third.wednesday;
+
+interface bank 
+{
+	public void withdraw();//abstract method
+}
+
+class InterfaceExample
+{
+	public static void main(String[] args) 
+	{
+		int x=10;
+		bank ob=new bank()  //functional Interface
+		{
+			@Override
+			public void withdraw() 
+			{
+				System.out.println("this is override method");
+				System.out.println("the value of x is "+x);
+			}
+		};
+		ob.withdraw();
+	}
+
+}
+-----------------------------------------------------------------------------------------------
+Functional interface using Lambda expression
+-------------------------
+package Third.wednesday;
+@FunctionalInterface
+interface bank 
+{
+	public void withdraw();
+}
+
+class InterfaceExample
+{
+	public static void main(String[] args) 
+	{
+		int x=10;
+		bank ob=()->
+		{//no need to override method
+				System.out.println("this is override method");
+				System.out.println("the value of x is "+x);
+				};
+		ob.withdraw();
+	}}
+--------------------------------------------------
+Lambda function with parameter
+------------------------------------------
+package Third.wednesday;
+//with parameter
+@FunctionalInterface
+interface bank 
+{
+	public int withdraw(int amount);
+}
+
+class InterfaceExample
+{
+	public static void main(String[] args) 
+	{
+		bank ob=(amount)->
+		{
+				return amount;
+		};
+		System.out.println("the withdrawal amount is "+ob.withdraw(1000));
+		
+	}}
+
+--------------------------------------------------------------------------
+package Third.wednesday;
+//with multiple parameter
+@FunctionalInterface
+interface bank 
+{
+	public int withdraw(int amount1,int amount2);
+}
+
+class InterfaceExample
+{
+	public static void main(String[] args) 
+	{
+		bank ob=(amount1,amount2)->(amount1+amount2);
+		{
+			System.out.println("the withdrawal amount is "+ob.withdraw(1000,2000));
+					};
+						
+	}}
+-------------------------------------------------------------------------------------------
+package Third.wednesday;
+//with multiple parameter with return
+@FunctionalInterface
+interface bank 
+{
+	public int withdraw(int amount1,int amount2);
+}
+
+class InterfaceExample
+{
+	public static void main(String[] args) 
+	{
+		bank ob=(amount1,amount2)->
+		{
+			return (amount1+amount2);
+					};
+			System.out.println("the withdrawal amount is "+ob.withdraw(1000,2000));			
+	}}
+---------------------------------------------------------------------------------------------
+Exception Handling/Error Handling
+----------------------------------------------------
+There are three types of errors
+1)logical error/syntax error
+2)Giving wrong input during runtime(wrong datatype)
+3)Spelling mistake or missing of semi-colon etc.
+-----------------------------------------------------------------------------------
+Exception handling deals with runtime errors.
+example:- 
+1)divide a number by zero
+2)in place of integer passing String datatype
+3)crossing the array limit.
+4)reading/writing data into a file which is not present.
+etc.
+------------------------------------------------------------------
+The main purpose of exception handling is to handle the error and stopping the program from terminating in between.
+So that the program should excecute till the end .
+The super class of exception is Throwable.
+Throwable
+i)Exception
+ii)error
+---------------------------------------------
+we have 5 keywords used to handle the runtime error.
+1)try
+2)catch
+3)finally
+4)throw
+5)throws
+----------------------------------------------------------------------
+ Example 1:
+package First.exception;
+import java.util.*;
+public class ExceptionExample1 
+{
+public static void main(String[] args) 
+{	try	{
+	Scanner ob=new Scanner(System.in);
+	System.out.println("enter 2 nos");
+	int a=ob.nextInt();
+	int b=ob.nextInt();
+	int c=a/b;
+	System.out.println("the result is "+c);
+	}
+	catch(Exception ae)
+	{
+		System.out.println("This Exception is :"+ae);
+	}
+	System.out.println("This is divide by zero error");
+}}
+---------------------------------------------------------------
+try-catch :-
+In this if try is success then the catch is also success.Means there is error in try then the catch will display error message.
+If try is failure means noo error then catch is also failure.The control will not flow inside the catch block.
+--------------------------------------------------------------
+try with multiple catch
+--------------------------
+package First.exception;
+import java.util.*;
+public class ExceptionExample1 
+{
+public static void main(String[] args) 
+{	try	{
+	Scanner ob=new Scanner(System.in);
+	System.out.println("enter 2 nos");
+	int a=ob.nextInt();
+	int b=ob.nextInt();
+	int c=a/b;
+	System.out.println("the result is "+c);
+	}
+	catch(ArithmeticException ae) //handle specific exception
+	{
+		System.out.println("This Exception is :"+ae);
+	}
+catch(Exception ae)//handle all types of exception
+{
+	System.out.println("Exception is :"+ae);
+}
+	System.out.println("This is divide by zero error");
+	}
+}
+----------------------------------------------------------------------------------------------
+ArrayIndexOutOfBoundsException (crossing the array limit)
+-----------------------------------------------------------------------------------------------
+package First.exception;
+import java.util.*;
+public class ExceptionExample1 
+{
+public static void main(String[] args) 
+{	try{
+	int a[]=new int[5];		
+	Scanner ob=new Scanner(System.in);
+	System.out.println("enter 5 nos");
+	for(int i=0;i<5;i++)
+	a[i]=ob.nextInt();
+	
+	System.out.println("5 nos are");
+	for(int i=0;i<=5;i++)
+	System.out.println(a[i]);
+	}
+	catch(Exception ae)
+	{	System.out.println("Exception is :"+ae);
+}	}}
+
+---------------------------------------------------------------------------------------------- 
+
+  try-catch-finally
+-----------------------------------------
+package First.exception;
+import java.util.*;
+public class ExceptionExample1 
+{
+public static void main(String[] args) 
+{	try{
+	int a[]=new int[5];		
+	Scanner ob=new Scanner(System.in);
+	System.out.println("enter 5 nos");
+	for(int i=0;i<5;i++)
+	a[i]=ob.nextInt();
+	
+	System.out.println("5 nos are");
+	for(int i=0;i<5;i++)
+	System.out.println(a[i]);
+	}
+	catch(ArrayIndexOutOfBoundsException ae)
+	{	
+		System.out.println("Exception is :"+ae);
+		}
+finally
+{
+	System.out.println("we are inside finally block");
+}
+}}
+---------------------------------------------------------
+try-finally :-
+In this the try is success or not it does not matter the finally block will definately exceute.
+So Closing of connection,closing of class etc are written inside finally block.
+
+package First.exception;
+import java.util.*;
+public class ExceptionExample1 
+{
+public static void main(String[] args) 
+{	try{
+	int a[]=new int[5];		
+	Scanner ob=new Scanner(System.in);
+	System.out.println("enter 5 nos");
+	for(int i=0;i<5;i++)
+	a[i]=ob.nextInt();
+	
+	System.out.println("5 nos are");
+	for(int i=0;i<=5;i++)
+	System.out.println(a[i]);
+	}
+	finally
+{
+	System.out.println("we are inside finally block");
+}
+}}
+------------------------------------------------------------------------------
+throws exception :- this is used to handle mostly checked exception.
+it does have body so the lines of code will be reduced.
+-------------------------
+package First.exception;
+import java.util.*;
+public class ExceptionExample1 
+{
+public static void main(String[] args) throws InterruptedException 
+{	
+	for(int i=1;i<=10;i++)
+	{
+		Thread.sleep(1000);
+System.out.println("This is delay of control");		
+	}
+	System.out.println("This is the End");		
+	
+}
+}
+------------------------------------------------------------------------
+Unchecked Exceptions are runtion time exceptions.
+example :- ArithmaticException,ArrayIndexOutOfBound,InputMisMatch
+
+Checked Exceptions are compile time exception.
+example:-IOException,SQLException,InterruptedException.
+----------------------------------------------------------------------------------------------
+throw exception:-
+------------------------------
+This is used for user defined exception.
+example:- marks should be greater than zero.
+salary should be greater than 15k.
+etc.
+-------------------------------------------------------------------------------------------------
+example:-
+package First.exception;
+import java.util.*;
+public class ExceptionExample1 
+{
+public static void main(String[] args) throws Exception  
+{	
+Scanner ob=new Scanner(System.in);
+System.out.println("enter your salary");
+int salary=ob.nextInt();
+if(salary>15000)
+System.out.println("your salary processed is ok");
+else
+	throw new Exception("salary should be greater than 15000");
+}
+}
+---------------------------------------------------------------------------------------------------
+Collection framework
+-----------------------------------------
+Collections in java is a framework that provides an architecture to store and manipulate the group of objects.
+All the operations that you perform on a data such as searching, sorting, insertion, manipulation, deletion etc. can be performed by Java Collections. 
+
+Java Collection simply means a single unit of objects. Java Collection framework provides many interfaces (Set, List, Queue, Deque) and classes (ArrayList, Vector, LinkedList,HashSet,LinkedHashSet, TreeSet etc).
+---------------------------------------------------
+array :-  int a[]=new int[5];//array size is assigned
+but in collection the size is dynamic.it expands as we enter the elements....
+1)set(interface):-(classes)TreeSet,HashSet,LinkedHashSet
+2)list (interface):-(classes)LinkedList,ArrayList,Vector,Stack
+3)map(interface):-(classes)HashTable,HashMap
+4)Queue (interface) maintains the first-in-first-out order.(classes) PriorityQueue, Deque, and ArrayDeque.
+
+1.set(interface)->
+Does not allow duplicate value.
+HashSet,LinkedHashSet,TreeSet(classes).
+a.Hashset->Display elements in random order.
+b.LinkedHashSet ->it displays in the same order.
+c.TreeSet ->It display in the sorted order.
+
+
+
+------------------------------------------------------------------
+
+2.List->
+It allows duplicate value.
+Stack,ArrayList,Linkedlist,Vector
+Stack:FILO .the last element will be arr[0].
+Linked List:it displays in same order.
+-----------------------------
+list iterator is used to view data forward and backward
+-----------------------------------------------------------------------------------------
+3.Map->
+HashMap:-we enter Key and value pair
+HashTable:-we enter Key and value pair
+
+*The HashMap class is roughly equivalent to Hashtable, except that it is unsynchronized and permits nulls. 
+(HashMap allows null values as key and value whereas Hashtable doesnt allow). 
+HashMap does not guarantee that the order of the map will remain constant every time. 
+HashMap is unsynchronized and Hashtable is synchronized.
+
+Key-value
+key should be unique- but value can be duplicate
+-----------------------------------------------------------------------------------------
+ note:Iterator,ListIterator and enumeration are interfaces which contains the set of methods. with the help of these methods we can retrieve objects from the collection of classes.
+-------------------------------------
+Iterator:three methods:hasNext();next();remove();
+----------------------------------------------------------------------------------------
+Vector is synchronized whereas arraylist is not.
+---------------------------------------------------------------------------------------
+
+
+Autoboxing and Unboxing
+autoboxing :- converting of primative datatype into its equivalent wrapper type is known as boxing.(int to Integer)
+unboxing:-converting wrapper type into primative datatype is known as unboxing.(Integer to int)
+------------------------------------------
+example of autoboxing
+-----------------------------------
+class autobox
+{
+public static void main(String h[])
+{
+int a=50;
+Integer b=new Integer(a);//boxing
+Integer c=5;//boxing
+System.out.println(b);
+System.out.println(c);
+}}
+-----------------------------------------------------------
+example of unboxing
+-----------------------------------
+class unbox
+{
+public static void main(String h[])
+{
+Integer a=new Integer(50);
+int x=a;//unboxing
+System.out.println(x);
+}}
+---------------------------------------------------------
+example-1(TreeSet -display in shorted order)
+-----------------
+package org.Collection;
+import java.util.TreeSet;
+public class Treeexample 
+{
+public static void main(String[] args) 
+{
+TreeSet ts=new TreeSet();
+Integer x=new Integer(3);//x is an object which store int datatype value.
+ts.add(10);//wraps the int to an object and store.
+ts.add(14);
+ts.add(56);
+ts.add(67);
+ts.add(8);
+ts.add(x);
+System.out.println(ts);
+}
+}
+
+---------------------------------------------------------------------------------------
+example-2
+--------------------
+package org.Collection;
+public class employee 
+{
+int empno;
+String name,address;
+
+public employee(int empno, String name, String address) {
+	super();
+	this.empno = empno;
+	this.name = name;
+	this.address = address;
+}
+
+@Override
+public String toString() {
+	return "employee [empno=" + empno + ", name=" + name + ", address=" + address + "]";
+}
+
+}
+---------------------------------------------------------------------
+package org.Collection;
+import java.util.*;
+public class Collectionexample1
+{public static void main(String[] args) 
+{
+	LinkedList ts=new LinkedList();
+	employee e=new employee(101,"delip","hyd");
+	employee e1=new employee(102,"satya","hyd");
+	ts.add(e);
+	ts.add(e1);
+	System.out.println(ts);
+}}
+-----------------------------------------------------------------------------------------
+example -3(LinkedHashSet :- it will display in the same order)
+package org.Collection;
+import java.util.*;
+public class Treeexample 
+{
+public static void main(String[] args) 
+{
+	LinkedHashSet ts=new LinkedHashSet();
+Integer x=new Integer(3);//x is an object which store int datatype value.
+ts.add(10);//wraps the int to an object and store.
+ts.add(14);
+ts.add(56);
+ts.add(67);
+ts.add(8);
+ts.add(x);
+System.out.println(ts);
+}
+}
+------------------------------------------------
+example-4(HashSet:- This will display data in random order )
+package org.Collection;
+import java.util.*;
+public class Treeexample 
+{
+public static void main(String[] args) 
+{
+	HashSet ts=new HashSet();
+Integer x=new Integer(3);//x is an object which store int datatype value.
+ts.add(10);//wraps the int to an object and store.
+ts.add(14);
+ts.add(56);
+ts.add(67);
+ts.add(8);
+ts.add(x);
+System.out.println(ts);
+}
+}
+-------------------------------------------------------------------
+example-5(Hashset/LiskedHashSet we can enter hetrogenious data)
+package org.Collection;
+import java.util.*;
+public class Treeexample 
+{
+	public static void main(String[] args) 
+	{	
+		HashSet hs=new HashSet();
+		Integer a=new Integer(10);
+		hs.add(a);
+		Float b=new Float(10.35);
+		hs.add(b);
+		String name=new String("raj");
+		hs.add(name);
+		employee obj=new employee(103,"Nitish","Noida");
+		hs.add(obj);
+		System.out.println(hs);
+	}
+}
+------------------------------------------------------------------------------------
+example-6
+package org.Collection;
+import java.util.*;
+public class Treeexample 
+{
+	public static void main(String[] args) 
+	{	
+		HashSet hs=new HashSet();
+		   System.out.println(hs.isEmpty());//return boolean value(true)
+		   System.out.println(hs.size());
+		    hs.add(10);    hs.add(30);    hs.add(40);    hs.add(80);    hs.add(100);     hs.add(10);
+		   System.out.println(hs);
+		   System.out.println(hs.isEmpty());
+		   System.out.println(hs.size());
+		   System.out.println(hs.contains(30));
+		   System.out.println(hs.contains(300));
+		      hs.remove(100);
+		   System.out.println(hs);     hs.clear();System.out.println(hs);   System.out.println(hs.size());
+	}}
+--------------------------------------------------------------------------------------------
+example-7(eterating using for each loop)
+package org.Collection;
+import java.util.*;
+public class Treeexample 
+{
+	public static void main(String[] args) 
+	{	
+		HashSet hs=new HashSet();
+	    hs.add(10);
+	    hs.add(30);
+	    hs.add(40);
+	    hs.add(80);
+	    hs.add(100);
+	   System.out.println(hs);
+	//To retrieve obj by for each 
+	   for(Object obj:hs)
+	{
+	   System.out.println(obj);
+	  }	}}
+
+----------------------------------------------------------------------------------
+example-8(ArrayList -display in the same order)
+package org.Collection;
+import java.util.*;
+public class Treeexample 
+{
+	public static void main(String[] args) 
+	{	
+		ArrayList al=new ArrayList();
+	     al.add(10);
+	     al.add(50);
+	     al.add(60);
+	     al.add(100);
+	      al.add(90);
+	      al.add(80);
+	System.out.println(al);
+	al.add(3,500);                 //100 will move next position
+	System.out.println(al);
+	al.remove(2);                //remove 60
+	System.out.println(al);
+	al.set(4,1000);              //replace 90 with 1000
+	System.out.println(al);
+	  }	}
+
+
+---------------------------------------------------------------------------------------
+example-9(Stack -in this we use push and pop)
+package org.Collection;
+import java.util.*;
+public class Treeexample 
+{
+	public static void main(String[] args) 
+	{	
+		Stack ss=new Stack();//FILO
+	    ss.push(10);
+	    ss.push(20);
+	    ss.push(30);
+	    ss.push(40);
+	    ss.push(50);
+	    ss.push(60);
+	    ss.push(70);
+	    ss.push(10);
+	System.out.println(ss);
+	System.out.println(ss.pop());//remove item from stack
+	System.out.println(ss);
+	System.out.println(ss.peek());//detect last item in stack but dont delete
+	System.out.println(ss);
+	System.out.println(ss.search(20));//display the index start from 1
+	System.out.println(ss.search(200));//display -1 if not there     
+	  }	}
+------------------------------------------------------------------------------------
+example-10(LinkedList :- adding two liked list)
+package org.Collection;
+import java.util.*;
+public class Treeexample 
+{
+	public static void main(String[] args) 
+	{	
+		 LinkedList ll=new LinkedList();
+		  LinkedList ll1=new LinkedList();
+		       ll1.add(100);      ll1.add(200);     ll1.add(300);      ll1.add(400);
+		       ll.add(10);     ll.add(40);      ll.add(20);     ll.add(80);    ll.add(90);      ll.add(50);
+		  System.out.println(ll1);		  System.out.println(ll);
+		         ll.addFirst(100);
+		System.out.println(ll);
+		        ll.addLast(200);
+		System.out.println(ll);
+		         ll.removeFirst();
+		         ll.removeLast();
+		  System.out.println(ll);
+		  System.out.println(ll.getFirst());
+		  System.out.println(ll.getLast());
+		   ll.addAll(ll1);
+		  System.out.println(ll);
+	  }	}
+
+------------------------------------------------------------------------------------------------
+//w.ap to create a employee class having empno,name,salary,designation.
+store the employee object in a ArrayList and display it.
+Enter the data at the run time.
+---------------------------------------------------------------------------------------------------------
+Example-11
+package org.iiht.com;
+import java.util.*;
+public class ArrayListExample
+{
+public static void main(String[] args) {
+	ArrayList<String> list=new ArrayList<String>();
+	list.add("Mango");
+	list.add("Apple");
+	list.add("Banana");
+	list.add("Grapes");
+	Collections.sort(list);//collection class has static methods like sort to sort the elements .
+	Iterator itr=list.iterator();
+	while(itr.hasNext())//return boolean value
+	{
+		System.out.println(itr.next());//returns the next element in the iteration
+	}
+}
+}
+------------------------------------------------------------------------------------
+Example-12
+package org.iiht.com;
+
+public class Student
+{
+int rollno;
+String name;
+int age;
+Student(int rollno,String name,int age)
+{
+	this.rollno=rollno;
+	this.name=name;
+	this.age=age;
+}
+}
+---------------------------------------------------
+package org.iiht.com;
+import java.util.ArrayList;
+import java.util.Iterator;
+public class ArrayListExample1 
+{
+public static void main(String[] args) {
+	Student s1=new Student(101,"amit",22);
+	Student s2=new Student(102,"sandip",23);
+	Student s3=new Student(103,"kiran",24);
+	ArrayList<Student> ob1=new ArrayList<Student>();
+	ob1.add(s1);
+	ob1.add(s2);
+	ob1.add(s3);
+	Iterator itr=ob1.iterator();
+	while(itr.hasNext())
+	{
+	Student st=(Student)itr.next();//typecasting the itr object to student type and stored in st object.
+	System.out.println(st.rollno+"  "+st.name+" "+st.age);
+	}
+}
+}
+-------------------------------------------------------------------------------------------
+Create a class Bank having accno,name,balance,phoneno
+insert the data and search the data according to accno.
+if you enter a accno it should display all information.
+----------------------------------------------------------------------------------- 
+Example-13
+package org.Collection;
+import java.util.*;
+class linklist_listiterator
+{
+   public static void main(String args[])  
+{
+LinkedList ll=new LinkedList();
+ll.add(10);ll.add(40);ll.add(20);ll.add(80);ll.add(90);ll.add(50);
+ListIterator ii=ll.listIterator();
+System.out.println("forward direction");
+while(ii.hasNext())
+   {
+     System.out.println(ii.next());
+}
+System.out.println("backward direction");
+while(ii.hasPrevious())
+   {
+     System.out.println(ii.previous());
+}}}
+----------------------------------------------------------------------------
+example-14(HashMap:- in this we enter key and value pair.Key cannot be duplicate)
+package org.Collection;
+import java.util.*;
+class hashmap
+{
+   public static void main(String args[]) 
+{
+     Scanner obj=new Scanner(System.in);
+     System.out.println("enter the key and name");
+     int b=obj.nextInt();
+     String st=obj.next();
+     HashMap hs=new HashMap();
+     hs.put(1,"raj");
+     hs.put(2,"seetha");
+     hs.put(3,"reeta");
+     System.out.println(hs);
+     hs.put(4,"meetha");
+     hs.put(5,"venu");
+     hs.put(6,"pankaj");
+     hs.put(7,"raj");
+     hs.put(10,"lakshmi");
+     hs.put(10,"lllll");
+     hs.put(b,st);
+     System.out.println(hs);
+}}
+
+-----------------------------------------------------------------------
+HashMap :- in this we enter key and value pair.
+Set set=hs.entrySet(); //HashMap is converted to set we have entrySet() in HashMap .Returns a Set view of the 			mappings contained in this map 
+     Iterator itr=set.iterator();
+     while(itr.hasNext())
+     {
+     Map.Entry en=(Map.Entry)itr.next();//typecasting the next() element with Map.Entry 
+     System.out.println(en.getKey()+"   "+en.getValue());//Map.Entry has 2 methods getKey() and getValue()
+----------------------------------------------------------------------------------------
+for(Map.Entry m:map.entrySet())
+--------------------------------------------------------------------------------------
+example-15
+----------------------
+package org.Collection;
+import java.util.*;
+class hashmap
+{
+   public static void main(String args[]) 
+{
+     Scanner obj=new Scanner(System.in);
+     System.out.println("enter the key and name");
+     int b=obj.nextInt();
+     String st=obj.next();
+     HashMap hs=new HashMap();
+     hs.put(1,"raj");
+     hs.put(2,"seetha");
+     hs.put(3,"reeta");
+     System.out.println(hs);
+     hs.put(4,"meetha");
+     hs.put(5,"venu");
+     hs.put(6,"pankaj");
+     hs.put(7,"raj");
+     hs.put(10,"lakshmi");
+     hs.put(10,"lllll");
+     hs.put(b,st);
+     System.out.println(hs);
+     Set set=hs.entrySet(); //
+     Iterator itr=set.iterator();
+     while(itr.hasNext())
+     {
+     Map.Entry en=(Map.Entry)itr.next();
+     System.out.println(en.getKey()+"   "+en.getValue());
+     }     
+}}
+--------------------------------------------------------------------------------------------------
+example-16
+----------------------
+package org.Collection;
+import java.util.*;  
+class MapExample2{  
+ public static void main(String args[]){  
+  Map<Integer,String> map=new HashMap<Integer,String>();  
+  map.put(100,"Amit");  
+  map.put(101,"Vijay");  
+  map.put(102,"Rahul");  
+  //Elements can traverse in any order  
+  for(Map.Entry m:map.entrySet()){  
+   System.out.println(m.getKey()+" "+m.getValue());  
+  } }}  
+------------------------------------------------------------------------------------------
+example-17
+--------------------
+import java.util.*;    
+class Book 
+{    
+int id;    
+String name,author,publisher;    
+int quantity;    
+public Book(int id, String name, String author, String publisher, int quantity) 
+{    
+    this.id = id;    
+    this.name = name;    
+    this.author = author;    
+    this.publisher = publisher;    
+    this.quantity = quantity;    
+}    
+}    
+----------------------------------------------------------------------------
+public class MapExample {    
+public static void main(String[] args) {    
+    //Creating map of Books    
+    Map<Integer,Book> map=new HashMap<Integer,Book>();    
+    //Creating Books    
+    Book b1=new Book(101,"Let us C","Yashwant Kanetkar","BPB",8);    
+    Book b2=new Book(102,"Data Communications & Networking","Forouzan","Mc Graw Hill",4);    
+    Book b3=new Book(103,"Operating System","Galvin","Wiley",6);    
+    //Adding Books to map   
+    map.put(1,b1);  
+    map.put(2,b2);  
+    map.put(3,b3);  
+      
+    //Traversing map  
+    for(Map.Entry<Integer, Book> entry:map.entrySet()){    
+        int key=entry.getKey();  
+        Book b=entry.getValue();  
+        System.out.println(key+" Details:");  
+        System.out.println(b.id+" "+b.name+" "+b.author+" "+b.publisher+" "+b.quantity);   
+    }    
+}    
+}    
+------------------------------------------------------------------------------------------
+Assignment
+----------------------
+In a cruise there are 3 types of tickets.
+1)crew member :- free
+2)Adult above 10 years:- Rs 500
+3)Children below 10 years :-Rs 250
+Enter details of all the passengers and count no of crew members ,Adult and children traveling .
+Also display the details of all the travellers.Using HashMap.
+
+----------------------------------------------------------------------------------------------------------
+example-18
+------------------
+package org.Collection;
+import java.util.*;  
+public class HashMap2 {  
+   public static void main(String args[]) {  
+    HashMap<Integer,String> map=new HashMap<Integer,String>();          
+      map.put(100,"Amit");    
+      map.put(101,"Vijay");    
+      map.put(102,"Rahul");  
+      map.put(103, "Gaurav");  
+    System.out.println("Initial list of elements: "+map);  
+    //key-based removal  
+    map.remove(100);  
+    System.out.println("Updated list of elements: "+map);  
+     //key-value pair based removal  
+    map.remove(102, "Rahul");  
+    System.out.println("Updated list of elements: "+map);  
+   }      
+}  
+--------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
