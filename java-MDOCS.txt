@@ -197,6 +197,75 @@ create a bank class
 accno,name,address,balance
 take the input and display it.
 --------------------------------------------------------------
+example-7
+--------------------
+package org.wed;
+import java.util.*;
+public class First 
+{
+	long accno;//instance variables and can be accessed through out the class.
+	String name,address;
+	float balance;
+	void input()
+	{
+		Scanner ob=new Scanner(System.in);
+		System.out.println("enter accno,name,address,balance");
+		accno=ob.nextLong();
+		name=ob.next();
+		address=ob.next();
+		balance=ob.nextFloat();
+	}
+	void display()
+	{
+		System.out.println("The accno is "+accno);
+		System.out.println("The name is "+name);
+		System.out.println("The address is "+address);
+		System.out.println("The balance is "+balance);
+	}
+	public static void main(String[] args) {
+		First obj=new First();
+		obj.input();
+		obj.display();
+	}
+}
+----------------------------------------------------------------------------------------------------------
+create a employee class
+empno,name,salary,address,designation
+take the input and display the output
+------------------------------------------------------------------------------------ 
+example-8
+-------------------
+package org.wed;
+import java.util.*;
+public class First 
+{
+	String empno,name,address,design;
+	float salary;
+	void input()
+	{
+		Scanner ob=new Scanner(System.in);
+		System.out.println("enter accno,name,address,designation,salary");
+		empno=ob.nextLine();
+		name=ob.nextLine();
+		address=ob.nextLine();
+		design=ob.nextLine();
+		salary=ob.nextFloat();
+	}
+	void display()
+	{
+		System.out.println("The empno is "+empno);
+		System.out.println("The name is "+name);
+		System.out.println("The address is "+address);
+		System.out.println("The designation is "+design);
+		System.out.println("The salary is "+salary);
+	}
+	public static void main(String[] args) {
+		First obj=new First();
+		obj.input();
+		obj.display();
+	}
+}
+---------------------------------------------------------------------------------------------
    String :-
 -----------
 1)String is a class in java.lang package
@@ -523,7 +592,7 @@ Inheritance
 It is a mechanism in which one object acquires all the properties and behaviors of a parent object.
 we can tell code reusability.
 In this we will be having a parent class and a child class.
-we use to keyword in inheritance.1)extend key to inherite the parent class into the child class.
+we use to keyword 1)extend key to inherite the parent class into the child class.
 2)super key word to inherite the variables and methods of parent class into the child class.
 
 Java support single inheritance.(single,multilevel,hierarchical)
@@ -580,6 +649,55 @@ dev.display();
 }
 ----------------------------------------------------------------
 Using Constructor
+---------------------------
+example-1
+--------------------
+package org.sandip;
+public class student 
+{
+int rollno;
+String name,address;
+public student(int rollno, String name, String address) 
+{
+	this.rollno = rollno;
+	this.name = name;
+	this.address = address;
+}
+void display()
+{
+	System.out.println("the rollno is "+rollno);
+	System.out.println("the name is "+name);
+	System.out.println("the address is "+address);
+}
+}
+--------------------------------------------------------------------------------------
+package org.sandip;
+public class result extends student
+{
+int phy,chem,bio,total;
+
+public result(int rollno, String name, String address, int phy, int chem, int bio) {
+	super(rollno, name, address);
+	this.phy = phy;
+	this.chem = chem;
+	this.bio = bio;
+}
+void display()
+{
+	super.display();
+	System.out.println("the physics marks is "+phy);
+	System.out.println("the chemistry marks is "+chem);
+	System.out.println("the biology marks is "+bio);
+	System.out.println("the total marks is "+(phy+chem+bio));
+	}
+public static void main(String[] args) 
+{
+	result rs=new result(101,"sandip","bangalore",66,66,88);
+	rs.display();
+}
+}
+--------------------------------------------------------------------------------------------
+example-2
 ---------------------------
 package second.Wednesday;
 import java.util.*;
