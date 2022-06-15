@@ -164,6 +164,39 @@ else
 	}
 }
 --------------------------------------------------------------------------
+example-6
+-------------------
+package org.wed;
+import java.util.*;
+public class First 
+{
+	int rollno;
+	String name,address;
+	void input()
+	{
+		Scanner ob=new Scanner(System.in);
+		System.out.println("enter rollno,name,address");
+		rollno=ob.nextInt();
+		name=ob.next();
+		address=ob.next();
+	}
+	void display()
+	{
+		System.out.println("The rollno is "+rollno);
+		System.out.println("The name is "+name);
+		System.out.println("The address is "+address);
+	}
+	public static void main(String[] args) {
+		First obj=new First();
+		obj.input();
+		obj.display();
+	}
+}
+------------------------------------------------------------------------------------------
+create a bank class 
+accno,name,address,balance
+take the input and display it.
+--------------------------------------------------------------
    String :-
 -----------
 1)String is a class in java.lang package
