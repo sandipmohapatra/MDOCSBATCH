@@ -192,7 +192,7 @@ public class First
 		obj.display();
 	}
 }
-------------------------------------------------------------------------------------------
+------------------------------------assignment-1------------------------------------------------------
 create a bank class 
 accno,name,address,balance
 take the input and display it.
