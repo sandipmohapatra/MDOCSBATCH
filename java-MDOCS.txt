@@ -503,6 +503,25 @@ for(int i=0;i<5;i++)
 -------------------------------------------------------------
 wap to enter 5 strings and display it.
 ------------------------------------------------------------------
+package org.sandip;
+import java.util.*;
+public class ArrayDemo 
+{
+public static void main(String[] args) 
+{
+String a[]=new String[5];
+Scanner ob=new Scanner(System.in);
+System.out.println("Enter 5 Strings");
+for(int i=0;i<5;i++)
+	a[i]=ob.next();
+
+System.out.println("5 strings are");
+for(int i=0;i<5;i++)
+	System.out.println(a[i]);
+
+}
+}
+----------------------------------------------------------------------------------
 Object Array
 ---------------------
 package First.Friday;
@@ -559,54 +578,7 @@ ob[i]=new Firstprg(accno,name,address,bal); //to enter data into each array obje
 
 
 -----------------------------------------------------------------------------------------
-package First.Friday;
-import java.util.*;
-class Firstprg
-{	
-int accno,bal;//instance variables
-String name,address;
-Scanner obj=new Scanner(System.in);
-void input()
-{
-	//this.accno=accno;  //local variable is assigned to instance variable
-		System.out.println("enter accno,name,address,balance");	
-		accno=obj.nextInt();
-		name=obj.next();
-		address=obj.next();
-		bal=obj.nextInt();
-		
-}
-	void display()
-	{
-		System.out.println("Accno :"+accno);
-		System.out.println("Name :"+name);
-		System.out.println("Address :"+address);
-		System.out.println("Balance :"+bal);
-			}
-public static void main(String[] args)
-{
-	Scanner obj=new Scanner(System.in);
-	System.out.println("How many customers want to enter");
-int x=obj.nextInt();
-Firstprg[] ob=new Firstprg[x];//declaring of array object
-	for(int i=0;i<x;i++)
-	{
-ob[i]=new Firstprg();  //object created
-	ob[i].input();
-	//ob[i].display();
-	}
-	System.out.println("enter the accno to search");
-	int temp=obj.nextInt();
-	for(int i=0;i<x;i++)
-	{
-	if(ob[i].accno==temp)
-	{
-	System.out.println("the name is "+ob[i].name);
-	System.out.println("the address is "+ob[i].address);
-	System.out.println("the balance is "+ob[i].bal);
-		}
-	}
-}}
+
 --------------------------------------------------------------------------
 Inheritance 
 ---------------------
