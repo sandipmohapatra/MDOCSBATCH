@@ -578,7 +578,55 @@ ob[i]=new Firstprg(accno,name,address,bal); //to enter data into each array obje
 
 
 -----------------------------------------------------------------------------------------
-
+example-2
+-------------------------------------
+package org.sandip;
+import java.util.*;
+public class Firstprg 
+{
+int accno,bal;//instance variables
+String name,address;
+Scanner obj=new Scanner(System.in);
+void input()
+{
+//this.accno=accno;  //local variable is assigned to instance variable
+System.out.println("enter name,address,balance,accno");
+name=obj.nextLine();
+address=obj.nextLine();
+bal=obj.nextInt();
+accno=obj.nextInt();
+}
+void display()
+{
+System.out.println("Name :"+name);
+System.out.println("Address :"+address);
+System.out.println("Balance :"+bal);
+System.out.println("Accno :"+accno);
+}
+public static void main(String[] args)
+{
+Scanner obj=new Scanner(System.in);
+System.out.println("How many customers want to enter");
+int x=obj.nextInt();
+Firstprg[] ob=new Firstprg[x];//declaring of array object
+for(int i=0;i<x;i++)
+{
+ob[i]=new Firstprg();  //object created
+ob[i].input();
+//ob[i].display();
+}
+System.out.println("enter the accno to search");
+int temp=obj.nextInt();
+for(int i=0;i<x;i++)
+{
+if(ob[i].accno==temp)
+{
+System.out.println("the name is "+ob[i].name);
+System.out.println("the address is "+ob[i].address);
+System.out.println("the balance is "+ob[i].bal);
+}
+}
+}}      
 --------------------------------------------------------------------------
 Inheritance 
 ---------------------
