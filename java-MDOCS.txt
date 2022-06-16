@@ -786,17 +786,21 @@ dev.display();
 static :- it is  a keyword.we can declare a variable as static ,method as static ,block as static and class as static when we take a inner class.
 A single copy is created and shared to the JVM.So if we declare variable as static ,method as static we can access it without creating an object.
 we cannot use a non-static variable inside a static method.
+static block will execute before the main method.
 -----------------------------------------------
 package second.Wednesday;
+package org.sandip;
 public class Staticexample 
 {
 static int a=10;
-int b=20;
+static int b=20;
+static int c;
 static void display()
 {
-	//int c=a+b;//we cannot call a non-static variable inside a static method
+	 c=a+b;//we cannot call a non-static variable inside a static method
 	System.out.println("the value of a is "+a);
-}
+	System.out.println("the sum is "+c);
+	}
 static
 {
 	System.out.println("this is a static block");
@@ -806,6 +810,7 @@ public static void main(String[] args)
 {
 System.out.println(a);
 display();}}
+
 
 ----------------------------------------------------------
 final keyword
