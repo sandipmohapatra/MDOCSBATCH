@@ -890,7 +890,7 @@ Interface
 1)it is similar abstract class but we donot have concrete methods.(only abstract methods in it)
 2)By interface we can do multiple inheritance.
 3)we donot use the keyword abstract .
-4)we cannot create object of a interface.we have to inherite a interface into a subclass.override the abstract methods and create object of the child class.
+4)we cannot create object of a interface.we have to inherite a interface into a child/subclass/derived.override the abstract methods and create object of the child class.
 ------------------------------------------------------------------------
 package second.Wednesday;
 interface SBIbank
@@ -922,6 +922,11 @@ public class InterfaceExample implements SBIbank,IDBIBank
 		System.out.println("ICICIBank balance check");
 					
 	}
+	@Override
+	public void dispBal() {
+		System.out.println("this is IDBI Bank");
+		
+	}
 	public static void main(String[] args) {
 		InterfaceExample ob=new InterfaceExample();
 		System.out.println(bal);
@@ -930,11 +935,7 @@ public class InterfaceExample implements SBIbank,IDBIBank
 		ob.dispBal();
 	}
 
-	@Override
-	public void dispBal() {
-		System.out.println("this is IDBI Bank");
-		
-	}
+	
 
 }
 
@@ -1098,7 +1099,7 @@ public static void main(String[] args)
 	{
 		System.out.println("This Exception is :"+ae);
 	}
-	System.out.println("This is divide by zero error");
+	System.out.println("This is end of the program");
 }}
 ---------------------------------------------------------------
 try-catch :-
