@@ -1669,6 +1669,7 @@ public static void main(String[] args) {
 	while(itr.hasNext())
 	{
 	Student st=(Student)itr.next();//typecasting the itr object to student type and stored in st object.
+	if(st.rollno==101)
 	System.out.println(st.rollno+"  "+st.name+" "+st.age);
 	}
 }
