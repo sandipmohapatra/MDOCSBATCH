@@ -1104,7 +1104,7 @@ public static void main(String[] args)
 ---------------------------------------------------------------
 try-catch :-
 In this if try is success then the catch is also success.Means there is error in try then the catch will display error message.
-If try is failure means noo error then catch is also failure.The control will not flow inside the catch block.
+If try is failure means no error then catch is also failure.The control will not flow inside the catch block.
 --------------------------------------------------------------
 try with multiple catch
 --------------------------
@@ -1211,7 +1211,7 @@ public static void main(String[] args)
 }
 }}
 ------------------------------------------------------------------------------
-throws exception :- this is used to handle mostly checked exception.
+throws exception :- this is used to handle mostly checked exception.:-SQLException,IOException,InterruptedException
 it does have body so the lines of code will be reduced.
 -------------------------
 package First.exception;
@@ -1341,6 +1341,46 @@ int x=a;//unboxing
 System.out.println(x);
 }}
 ---------------------------------------------------------
+collection Example1
+------------------------------------
+package org.wed;
+
+public class Student 
+{
+int rollno;
+String name,address;
+public Student(int rollno, String name, String address) {
+	super();
+	this.rollno = rollno;
+	this.name = name;
+	this.address = address;
+}
+@Override
+public String toString() {
+	return "Student [rollno=" + rollno + ", name=" + name + ", address=" + address + "]";
+}
+
+}
+------------------------------------------
+package org.wed;
+import java.util.*;
+public class CollectionDemo1 
+{
+public static void main(String[] args) {
+	Student obj1=new Student(101,"sandip","Bangalore");
+	Student obj2=new Student(102,"amit","Bangalore");
+	Student obj3=new Student(103,"kiran","Bangalore");
+	Student obj4=new Student(104,"sunil","Bangalore");
+	LinkedList<Student> ls=new LinkedList<Student>();
+	ls.add(obj1);
+	ls.add(obj2);
+	ls.add(obj3);
+	ls.add(obj4);
+	System.out.println(ls);
+	}
+}
+-------------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------------------
 example-1(TreeSet -display in shorted order)
 -----------------
 package org.Collection;
