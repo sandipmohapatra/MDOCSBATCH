@@ -1762,7 +1762,7 @@ class hashmap
      hs.put(10,"lllll");
      hs.put(b,st);
      System.out.println(hs);
-     Set set=hs.entrySet(); //
+     Set set=hs.entrySet(); 
      Iterator itr=set.iterator();
      while(itr.hasNext())
      {
@@ -1858,8 +1858,254 @@ public class HashMap2 {
    }      
 }  
 --------------------------------------------------------------------------------------------------
+File Handling
+------------------------
+1)It is used to store and manage data.
+2)Reading and writing data into a file can be done using byteStream or character stream.
+3)The data flow from source to destination while we copy data from one file to the other.
+4)The process of reading and writing object into file is known as serialization and de-serialization.
+5)we will be using java.io package.
+6)There are 2 types of streams by which we can read and write data into a file.
+a)byte stream
+b)character stream
+7)while working with file we have to handle the exception because it throws checked Exception.
+8)We have exceptions in file like 1)EOFException 2)FileNotFoundException 3)InterruptedIOException 4)IOException
 
+-------------------------------------------------------------------------------------------------------------------------------------------------
+example-1
+---------------------
+package org.files;
+import java.io.*;
+import java.util.*;
+public class FilesDemo1
+{
+public static void main(String[] args) 
+{
+Scanner ob=new Scanner(System.in);
+System.out.println("Enter the file name");
+String fname=ob.next();
+File f=new File(fname);
+System.out.println("The file name is "+f.getName());
+System.out.println("The file path is "+f.getPath());
+System.out.println("The file absolute path is "+f.getAbsolutePath());
+System.out.println("The file existing is "+f.exists());
+System.out.println("The file is in read mode "+f.canRead());
+System.out.println("The file is in write mode "+f.canWrite());
+System.out.println("The file is in execute mode "+f.canExecute());
+System.out.println("The file length is "+f.length());
+System.out.println("The file is a file "+f.isFile());
+System.out.println("The file is a directory "+f.isDirectory());
+}
+}
+--------------------------------------------------------------------------------------------------------------
+ByteStream
+----------------------
+1)InputStream---------------reading data from the file.
+2)OutputStream--------------writing data from the file.
+---------------------------------------------------------------------------
+BufferedInputStream
+BufferedOutStream
+----------------------------------------------
+FileInputStream
+FileOutputStream
+-------------------------------------------------
+ObjectInputStream
+ObjectOutputStream
+---------------------------------------------------
+DataInputStream
+DataOutputStream
+--------------------------------------------------------
+example-2
+-----------------
+package org.files;
+import java.io.*;
+import java.util.*;
+public class FilesDemo2
+{
+public static void main(String[] args)throws Exception  
+{
+	DataInputStream dis=new DataInputStream(System.in);
+	FileOutputStream fis=new FileOutputStream("student.txt");
+	System.out.println("Enter the data");
+int data;
+while((data=dis.read())!='\n')
+{
+	fis.write(data);
+}
+System.out.println("Witting over");
+dis.close();fis.close();
+}
+}
+------------------------------------------------------------------------------------------------
+wap to create a library class.(bookid,bname,authorname,price)
+create a hashmap and store the slno and objects
+search for the slno and display the book of that slno .
+-----------------------------------------------------------------------------------------------------
+example-3
+------------------
+package org.fileDemo;
+import java.io.*;
+public class Third 
+{
+public static void main(String[] args) throws Exception
+{
+	BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+	System.out.println("Enter empno");
+	int empno=Integer.parseInt(br.readLine());
+	System.out.println("Enter empname");
+	String name=br.readLine();
+	System.out.println("Enter address");
+	String address=br.readLine();
+	System.out.println("Enter salary");
+	float salary=Float.parseFloat(br.readLine());
+	System.out.println("the empno is "+empno);
+	System.out.println("the empname is "+name);
+	System.out.println("the address is "+address);
+	System.out.println("the salary is "+salary);
+	
+	
+}
+}
+--------------------------------------------------------------------------------------------------------------------
+//reading data from one file and writing data into another file.
+package org.fileDemo;
+import java.io.*;
+public class Fourth {
+public static void main(String[] args) throws Exception
+{
+	FileInputStream fis=new FileInputStream("student.txt");//read
+	FileOutputStream fos=new FileOutputStream("student1.txt");//writing
+	int data;
+	while((data=fis.read())!=-1)
+	{
+		fos.write(data);
+	}
+	fis.close();fos.close();
+	System.out.println("file copied..................");
+}
+}
+----------------------------------------------------------
+package org.fileDemo;
+import java.io.*;
+public class uppercase{
 
+    public static void main(String[] args) {
+    
+    try {
+        FileReader reader = new FileReader("student.txt");
+        FileWriter writer = new FileWriter("student2.txt");
+
+        int data;
+        int data2;
+        while((data=reader.read())!= -1) //-1 indicate the end of the file.
+        {
+          data2=Character.toUpperCase(data);
+          writer.write(data2);
+        }
+        reader.close();
+        writer.close();
+
+        
+    } 
+    catch (Exception e) 
+    {
+        e.printStackTrace();
+    
+  }
+}}
+---------------------------------------------------------------------
+//writing object into the file and reading object from the file.
+//it is known as serialization and de-serialization
+//ObjectInputStream ---reading object
+//ObjectOutputStream ---writing object.
+Serializable----It is interface with no abstract methods in it.So it is called marker Interface.
+------------------------------------------------------------------------------------------------------------------------------------
+example-6
+------------------------
+package org.fileDemo;
+import java.io.*;
+public class Student implements Serializable
+{
+int rollno;
+String name,address;
+}
+-----------------------------------------------------------------------
+package org.fileDemo;
+import java.io.*;
+public class SerializableDemo 
+{
+public static void main(String[] args)throws IOException 
+{
+	Student obj=new Student();
+	obj.rollno=101;
+	obj.name="sandip";
+	obj.address="bangalore";
+	FileOutputStream fos=new FileOutputStream("object.txt");
+	ObjectOutputStream os=new ObjectOutputStream(fos);
+	os.writeObject(obj);
+	fos.close();os.close();
+	System.out.println("Object written into the file..................");
+}
+}
+-----------------------------------------------------------
+package org.fileDemo;
+import java.io.*;
+public class DeserializableDemo 
+{
+public static void main(String[] args)throws Exception 
+{
+	Student s1=null;
+	FileInputStream fis=new FileInputStream("object.txt");
+	ObjectInputStream os=new ObjectInputStream(fis);
+	s1=(Student) os.readObject();
+	fis.close();os.close();
+	System.out.println("The rollno is "+s1.rollno);
+	System.out.println("The name is "+s1.name);
+	System.out.println("The address is "+s1.address);
+	}
+}
+-----------------------------------------------------------------------------------------------------------
+Example-1
+-----------------
+package org.collectionDemo;
+public class Student 
+{
+int rollno,marks;
+String name,address;
+public Student(int rollno, String name, String address, int marks) 
+{
+	this.rollno = rollno;
+	this.name = name;
+	this.address = address;
+	this.marks = marks;
+}
+@Override
+public String toString() {
+	return "Student [rollno=" + rollno + ", marks=" + marks + ", name=" + name + ", address=" + address + "]";
+}
+
+}
+---------------------------------------------------------------------------
+package org.collectionDemo;
+import java.util.*;
+public class CollectionDemo 
+{
+public static void main(String[] args) 
+{
+Student ob1=new Student(1,"sandip","hyd",67);
+Student ob2=new Student(2,"sunil","hyd",87);
+Student ob3=new Student(3,"anil","hyd",77);
+Student ob4=new Student(4,"kiran","hyd",57);
+ArrayList<Student> al=new ArrayList<Student>();
+al.add(ob1);
+al.add(ob2);
+al.add(ob3);
+al.add(ob4);
+for(Object x:al)
+	System.out.println(x);
+}
+}
+---------------------------------------------------------------------------------
 
 
 
