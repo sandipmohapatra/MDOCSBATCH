@@ -55,3 +55,80 @@ POM.xml
   </dependencies>
 </project>
 ----------------------------------------------------------------------------------------------------------------
+JUNIT TEST :- is a functional testing done by the developers.
+example:- assertEquals(25,square(5));
+25 is the expected output of square(5) .If it is true it display green signal other wise it will display brown signal.
+---------------------------------------------------------------------------------------------------
+public class Calculator {
+	public int square(int i) 
+	{
+		return i*i;
+	}
+	public String user(String string) 
+	{
+		return "kundan";
+	}
+	public String concat(String string, String string2) {
+		
+		return string+string2;
+	}
+
+	public int sub(int i, int j) {
+		
+		return i-j;
+	}
+
+	public int add(int i, int j) {
+		
+		return i+j;
+	}
+
+}
+-----------------------------------------------------------------------------
+import static org.junit.Assert.*;
+import org.junit.Test;
+public class TestCalculator
+{
+	Calculator cal=new Calculator();
+	@Test  //Used to identify that a method is a test method
+
+	public void testSquares()
+	{
+		
+		assertEquals(25,cal.square(5));
+		assertEquals(5*5,cal.square(5));
+		assertEquals((3+4),cal.add(3,4));
+		assertEquals(15,cal.add(7,8));
+		assertEquals(-1,cal.sub(7,8));
+	}
+	
+	@Test
+	public void testUser()
+	{
+		assertEquals("kundan",cal.user("kundan"));
+	}
+	
+	@Test
+	public void stringtest1()
+	{
+	String result = cal.concat("Hello", "World");
+	assertEquals("HelloWorld", result);
+	String s1="Hello";
+	String s2="Hello";
+	assertSame(s1,s2); 
+	}
+}
+------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
