@@ -531,7 +531,88 @@ assertNull(object): It indicates given object is null,else Test is failed.
 assertDoesNotThrow(Executable):
 This is used to specify that our method call is not throwing any exception else if it will make the test fail.
 --------------------------------------------------------------------------------------------------	
-	
+Example 3:-(SuiteClasses)
+----------------------
+/* * This class prints the given message on console. */ 
+public class MessageUtil 
+{  
+   private String message;  
+ 
+ public MessageUtil(String message)
+{     
+  this.message = message;   
+  }  
+   // prints the message  
+  public String printMessage()
+{   
+   System.out.println(message);    
+   return message;    
+}     
+   // add "Hi!" to the message   
+public String salutationMessage()
+{      
+ message = "Hi!" + message;    
+   System.out.println(message);  
+     return message;   
+ }
+    }
+----------------------------------------------------------------------------------------------
+import org.junit.Test;
+ import org.junit.Ignore; 
+import static org.junit.Assert.assertEquals;  
+public class TestJunit2 
+{  
+   String message = "Robert";    
+ MessageUtil messageUtil = new MessageUtil(message);   
+   @Test   
+ public void testSalutationMessage() 
+{      
+ System.out.println("Inside testSalutationMessage()");     
+  message = "Hi!" + "Robert";    
+   assertEquals(message,messageUtil.salutationMessage());  
+  }
+ } 
+--------------------------------------------------------------------------------------
+import org.junit.Test; 
+import org.junit.Ignore;
+ import static org.junit.Assert.assertEquals;  
+public class TestJunit1 
+{ 
+ String message = "Robert"; 
+    MessageUtil messageUtil = new MessageUtil(message); 
+       @Test
+    public void testPrintMessage() 
+{       
+ System.out.println("Inside testPrintMessage()");          
+ assertEquals(message, messageUtil.printMessage());    
+     } 
+}
+------------------------------------------------------------------------------------
+import org.junit.runner.RunWith;
+import org.junit.runners.Suite;
+import org.junit.runners.Suite.SuiteClasses;
+@RunWith(Suite.class)
+@SuiteClasses({TestJunit2.class,TestJunit1.class})
+public class TestsuitDemo {
+
+}
+----------------------------------------------------------------------
+import org.junit.runner.JUnitCore;
+ import org.junit.runner.Result;
+ import org.junit.runner.notification.Failure;  
+public class TestRunner 
+{ 
+ public static void main(String[] args) 
+{
+       Result result = JUnitCore.runClasses(TestsuitDemo.class);
+       for (Failure failure : result.getFailures())
+ {    
+      System.out.println(failure.toString());  
+     } 
+      System.out.println(result.wasSuccessful()); 
+   }
+ }
+----------------------------------------------------------------------------------------
 
 
 
