@@ -446,9 +446,31 @@ Maths m=mock(Maths.class);
 when(m.div(a,b)).thenReturn(a/b);
 assertEquals(2,m.div(a,b));
 }
+@DisplayName("Testing Iterator")
+@Test
+@Order(5)
+public void testMockE()
+{
+	Iterator<String> itr=mock(Iterator.class);
+	when(itr.next()).thenReturn("One").thenReturn("Two").thenReturn("Three");
+	String actual=itr.next()+" "+itr.next()+" "+itr.next();
+	assertEquals("One Two Three",actual);
+}
+
+@DisplayName("Testing Comparable")
+@Test
+@Order(6)
+public void testMockF()
+{
+	Comparable<String> comp=mock(Comparable.class);
+when(comp.compareTo("sandip")).thenReturn(10);
+when(comp.compareTo("anil")).thenReturn(20);
+when(comp.compareTo("sunil")).thenReturn(30);
+assertEquals(20,comp.compareTo("anil"));
+}
 }
 -----------------------------------------------------------------------------------
-DAO,Service,
+
 
 
 
