@@ -343,6 +343,118 @@ public class TestCase2 {
   
 }  
 -----------------------------------------------------------------
+Mockito :-
+----------------------
+It is a test framework.It is mocking framework.
+mocking :- It cloning of the devloped project.
+one copy will be with the developers and one copy will be with testers.
+example :- login page developed by developers .the tester will test the username,password ,remember me.
+The clone is provided to the tester any error then the developers will make the change with the real object and again give the clone to the testers.
+Mocking is a process of developing the object that act as the mock or clone of the real objects.
+In this mock objects are used instead of real object for testing purpose.
+
+To mock object we have to know 3 key words
+1)stub:- It hold pre-defined data and provide it to answer the call during testing.
+They are dummy object with a minimum no of methods required for a test.
+2)Fake:-They are objects that contains working implementations but are different from the production one.
+3)Mock:- It is dummy object or clone of real object used for testing.
+They are created with open-source library or mocking framework like mockito.
+--------------------------------------------------------------------------------------------------------
+<dependencies>
+
+<dependency>
+<groupId>org.junit.jupiter</groupId>
+<artifactId>junit-jupiter-engine</artifactId>
+<version>5.6.2</version>
+<scope>test</scope>
+</dependency>
+
+<dependency>
+<groupId>org.mockito</groupId>
+<artifactId>mockito-core</artifactId>
+<version>3.3.3</version>
+<scope>test</scope>
+</dependency>
+
+<dependency>
+<groupId>org.mockito</groupId>
+<artifactId>mockito-junit-jupiter</artifactId>
+<version>3.3.3</version>
+<scope>test</scope>
+</dependency>
+
+</dependencies>
+------------------------------------------------------------------------------------------------------------------- 
+
+example-1
+-------------------
+package org.mock;
+public interface Maths 
+{
+public int add(int a,int b);
+public int sub(int a,int b);
+public int mul(int a,int b);
+public int div(int a,int b);
+}
+---------------------------------------------------------------
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.when;
+import java.util.Iterator;
+
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Order;
+import org.junit.jupiter.api.Test;
+import org.mock.Maths;
+public class TestMock 
+{
+	@Test
+	public void testMockA()
+	{
+		int a=10,b=20;
+Maths m=mock(Maths.class);
+when(m.add(a,b)).thenReturn(a+b);
+assertEquals(30,m.add(a,b));
+}
+	@DisplayName("Testing Subtraction of 2 nos")
+	@Order(3)
+	@Test
+	public void testMockB()
+	{
+		int a=10,b=20;
+Maths m=mock(Maths.class);
+when(m.sub(a,b)).thenReturn(a-b);
+assertEquals(-10,m.sub(a,b));
+}
+	@DisplayName("Testing Multiply 2 nos")
+	@Order(2)
+	@Test
+public void testMockC()
+	{
+		int a=10,b=20;
+Maths m=mock(Maths.class);
+when(m.mul(a,b)).thenReturn(a*b);
+assertEquals(200,m.mul(a,b));
+}
+@DisplayName("Testing Divide 2 nos")
+	@Test
+	@Order(1)
+public void testMockD()
+	{
+		int a=20,b=10;
+Maths m=mock(Maths.class);
+when(m.div(a,b)).thenReturn(a/b);
+assertEquals(2,m.div(a,b));
+}
+}
+-----------------------------------------------------------------------------------
+DAO,Service,
+
+
+
+
+
+
 
 
 
