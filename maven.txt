@@ -471,6 +471,68 @@ assertEquals(20,comp.compareTo("anil"));
 }
 -----------------------------------------------------------------------------------
 
+example-2
+----------------
+package org.mock;
+import java.sql.*;
+public class DataBaseConnect 
+{
+public Connection getCon() throws ClassNotFoundException,SQLException
+{
+	Connection con=null;
+	Class.forName("oracle.jdbc.driver.OracleDriver");
+	con=DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe","system","1234");
+	return con;
+}
+}
+--------------------------------------------------------------------------
+import java.sql.Connection;
+import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.mock.DataBaseConnect;
+public class TestMock2 
+{
+	private DataBaseConnect dbc;
+	private Connection con;
+@BeforeEach
+public void initData()
+{
+	dbc=new DataBaseConnect();
+	}
+	@Test
+	public void testGetCon()
+	{
+		assertDoesNotThrow(()->{
+			con=dbc.getCon();
+		});
+		assertNotNull(con,"connection is not created,");
+	}
+	
+	@AfterEach
+	public void clean()
+	{
+		dbc=null;
+		con=null;
+	}
+}
+---------------------------------------------------------------------------------------------------------------------------------
+*note:-
+---------------
+assertNotNull/assertNull()
+
+assertNotNull(object): This method is used to specify that given object is not a nulll value it holds some data.else the Test is failed.
+
+assertNull(object): It indicates given object is null,else Test is failed.
+
+assertDoesNotThrow(Executable):
+This is used to specify that our method call is not throwing any exception else if it will make the test fail.
+--------------------------------------------------------------------------------------------------	
+	
+
 
 
 
